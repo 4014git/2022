@@ -12,9 +12,9 @@ DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{LeftMotorFront}, m_left
   m_rightFollower.Follow(m_rightFront);
 
   m_rightFront.SetInverted(TalonFXInvertType::Clockwise);
-  m_rightFollower.SetInverted(TalonFXInvertType::Clockwise);
+  m_rightFollower.SetInverted(TalonFXInvertType::FollowMaster);
   m_leftFront.SetInverted(TalonFXInvertType::CounterClockwise);
-  m_leftFollower.SetInverted(TalonFXInvertType::CounterClockwise);
+  m_leftFollower.SetInverted(TalonFXInvertType::FollowMaster);
 }
 
 void DrivetrainSubsystem::ArcadeDrive(double y, double x) {
