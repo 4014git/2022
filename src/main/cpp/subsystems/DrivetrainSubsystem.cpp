@@ -2,9 +2,19 @@
 
 using namespace DriveConstants;
 
-DrivetrainSubsystem::DrivetrainSubsystem() : m_left1{LeftMotor1ID}, m_left2{LeftMotor2ID}, m_right1{RightMotor1ID}, m_right2{RightMotor2ID} {
-  m_left.SetInverted(LeftDriveReversed);
-  m_right.SetInverted(RightDriveReversed);
+DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{LeftMotorFront}, m_leftFollower{LeftMotorFollower}, m_rightFront{RightMotorFront}, m_rightFollower{RightMotorFollower} {
+  m_leftFront.ConfigFactoryDefault();
+  m_leftFollower.ConfigFactoryDefault();
+  m_rightFront.ConfigFactoryDefault();
+  m_rightFollower.ConfigFactoryDefault();
+  
+  m_leftFollower.Follow(m_leftFront);
+  m_rightFollower.Follow(m_rightFront);
+
+  m_rightFront.SetInverted(TalonFXInvertType::Clockwise);
+  m_rightFollower.SetInverted(TalonFXInvertType::Clockwise);
+  m_leftFront.SetInverted(TalonFXInvertType::CounterClockwise);
+  m_leftFollower.SetInverted(TalonFXInvertType::CounterClockwise);
 }
 
 void DrivetrainSubsystem::ArcadeDrive(double y, double x) {

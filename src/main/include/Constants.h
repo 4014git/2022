@@ -2,10 +2,10 @@
 
 
 namespace DriveConstants {
-    constexpr int LeftMotor1ID = 12;
-    constexpr int LeftMotor2ID = 13;
-    constexpr int RightMotor1ID = 14;
-    constexpr int RightMotor2ID = 15;
+    constexpr int LeftMotorFront = 12;
+    constexpr int LeftMotorFollower = 13;
+    constexpr int RightMotorFront = 14;
+    constexpr int RightMotorFollower = 15;
 
     constexpr bool LeftDriveReversed = false;
     constexpr bool RightDriveReversed = true;
