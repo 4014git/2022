@@ -10,7 +10,8 @@ namespace DriveConstants {
 
 namespace AutoConstants {
     constexpr double kAutoDriveSpeed = 0.5;
-    constexpr double kAutoDriveDistanceInches = 60;
+    constexpr double kAutoDriveForwardDistanceInches = 60;
+    constexpr double kAutoDriveForwardBackInches = 60;
 }
 
 namespace OIConstants {
