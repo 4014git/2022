@@ -30,16 +30,16 @@ class RobotContainer {
 
   frc2::FunctionalCommand m_simpleAuto = frc2::FunctionalCommand(
       // Reset encoders on command start
-      [this] { m_leftFront.SetSelectedSensorPosition(0, 0, 10); },
+      [this] { m_drive.ResetEncoders(); },
       // Drive forward while the command is executing
-      [this] { m_drive.ArcadeDrive(AutoConstants::kAutoDriveSpeed, 0); },
+      [this] { m_drive.ArcadeDrive(0.5, 0); }, // Replace the first parameter of ArcadeDrive() with the drive speed
       // Stop driving at the end of the command
       [this](bool interrupted) { m_drive.ArcadeDrive(0, 0); },
       // End the command when the robot's driven distance exceeds the desired
       // value
       [this] {
         return m_drive.GetAverageEncoderDistance() >=
-               AutoConstants::kAutoDriveDistanceInches;
+               12; // replace this number with travel distance, in inches
       },
       // Requires the drive subsystem
       {&m_drive});
