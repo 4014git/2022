@@ -23,12 +23,10 @@ void DrivetrainSubsystem::ArcadeDrive(double y, double x) {
 
 void DrivetrainSubsystem::ResetEncoders() {
   m_leftFront.SetSelectedSensorPosition(0, 0, 10);
-  m_leftFollower.SetSelectedSensorPosition(0, 0, 10);
   m_rightFront.SetSelectedSensorPosition(0, 0, 10);
-  m_rightFollower.SetSelectedSensorPosition(0, 0, 10);
 }
 
 double DrivetrainSubsystem::GetAverageEncoderDistance() {
   // the gorgeous one-liner
-  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition())/2;
+  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition())/2.0;
 }
