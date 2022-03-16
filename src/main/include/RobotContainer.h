@@ -28,21 +28,21 @@ class RobotContainer {
 
   DrivetrainSubsystem m_drive;
 
-  // frc2::FunctionalCommand m_simpleAuto = frc2::FunctionalCommand(
-  //     // Reset encoders on command start
-  //     [this] { m_drive.ResetEncoders(); },
-  //     // Drive forward while the command is executing
-  //     [this] { m_drive.ArcadeDrive(AutoConstants::kAutoDriveSpeed, 0); },
-  //     // Stop driving at the end of the command
-  //     [this](bool interrupted) { m_drive.ArcadeDrive(0, 0); },
-  //     // End the command when the robot's driven distance exceeds the desired
-  //     // value
-  //     [this] {
-  //       return m_drive.GetAverageEncoderDistance() >=
-  //              AutoConstants::kAutoDriveDistanceInches;
-  //     },
-  //     // Requires the drive subsystem
-  //     {&m_drive});
+  frc2::FunctionalCommand m_simpleAuto = frc2::FunctionalCommand(
+      // Reset encoders on command start
+      [this] { m_leftFront.SetSelectedSensorPosition(0, 0, 10); },
+      // Drive forward while the command is executing
+      [this] { m_drive.ArcadeDrive(AutoConstants::kAutoDriveSpeed, 0); },
+      // Stop driving at the end of the command
+      [this](bool interrupted) { m_drive.ArcadeDrive(0, 0); },
+      // End the command when the robot's driven distance exceeds the desired
+      // value
+      [this] {
+        return m_drive.GetAverageEncoderDistance() >=
+               AutoConstants::kAutoDriveDistanceInches;
+      },
+      // Requires the drive subsystem
+      {&m_drive});
 
   void ConfigureButtonBindings();
 };

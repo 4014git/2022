@@ -7,7 +7,7 @@ DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{LeftMotorFront}, m_left
   m_leftFollower.ConfigFactoryDefault();
   m_rightFront.ConfigFactoryDefault();
   m_rightFollower.ConfigFactoryDefault();
-  
+
   m_leftFollower.Follow(m_leftFront);
   m_rightFollower.Follow(m_rightFront);
 
