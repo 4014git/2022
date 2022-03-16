@@ -6,9 +6,11 @@ namespace DriveConstants {
     constexpr int LeftMotorFollower = 13;
     constexpr int RightMotorFront = 14;
     constexpr int RightMotorFollower = 15;
+}
 
-    constexpr bool LeftDriveReversed = false;
-    constexpr bool RightDriveReversed = true;
+namespace AutoConstants {
+    constexpr double kAutoDriveSpeed = 0.5;
+    constexpr double kAutoDriveDistanceInches = 60;
 }
 
 namespace OIConstants {
