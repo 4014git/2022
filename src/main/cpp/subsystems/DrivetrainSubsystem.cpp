@@ -30,5 +30,5 @@ void DrivetrainSubsystem::ResetEncoders() {
 
 double DrivetrainSubsystem::GetAverageEncoderDistance() {
   // the gorgeous one-liner
-  return (m_leftFront.GetSelectedSensorPosition() + m_leftFollower.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition() + m_rightFollower.GetSelectedSensorPosition())/4;
+  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition())/2;
 }
