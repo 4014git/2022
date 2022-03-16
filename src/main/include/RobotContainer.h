@@ -1,10 +1,6 @@
 #pragma once
 
-// #include <frc2/command/Command.h>
-// #include <frc2/command/InstantCommand.h>
-
 #include <frc/Joystick.h>
-#include <frc2/command/InstantCommand.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/FunctionalCommand.h>
 
@@ -20,7 +16,6 @@
 class RobotContainer {
  public:
   RobotContainer();
-
   frc2::Command* GetAutonomousCommand();
 
  private:
@@ -28,7 +23,7 @@ class RobotContainer {
 
   DrivetrainSubsystem m_drive;
 
-  frc2::FunctionalCommand m_simpleAuto = frc2::FunctionalCommand(
+  frc2::FunctionalCommand m_Auto = frc2::FunctionalCommand(
       // Reset encoders on command start
       [this] { m_drive.ResetEncoders(); },
       // Drive forward while the command is executing
