@@ -57,5 +57,5 @@ double ClimberSubsystem::getRightEncoderDistance()
 
 double ClimberSubsystem::getAverageEncoderDistance()
 {
-    return (m_leftEncoder.GetPosition() + m_rightEncoder.GetPosition()) / 2;
+    return (m_leftEncoder.GetPosition() + m_rightEncoder.GetPosition()) / 2.0;
 }

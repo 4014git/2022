@@ -53,7 +53,7 @@ private:
       [this] { m_drive.ResetEncoders(); },
       [this] { m_drive.ArcadeDrive(AutoConstants::kAutoDriveSpeed, 0); },
       [this] (bool interrupted) { m_drive.ArcadeDrive(0, 0); },
-      [this] { return m_drive.GetAverageEncoderDistanceInches() >= AutoConstants::kAutoDriveForwardDistanceInches; },
+      [this] { return m_drive.GetAverageEncoderDistanceInches() >= AutoConstants::kAutoDriveDistanceInches; },
       {&m_drive}
       ),
       frc2::FunctionalCommand(
