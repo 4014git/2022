@@ -28,9 +28,4 @@ public:
 private:
   rev::CANSparkMax m_leftMotor;
   rev::CANSparkMax m_rightMotor;
-
-  frc::Encoder m_leftEncoder;
-  frc::Encoder m_rightEncoder;
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
 };

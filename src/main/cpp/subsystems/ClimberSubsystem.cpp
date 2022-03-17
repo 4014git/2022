@@ -8,19 +8,19 @@
 
 using namespace ClimberConstants;
 
-ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_leftEncoder{kLeftEncoderFront, kLeftEncoderFollower}, m_rightEncoder{kRightEncoderFront, kRightEncoderFollower}
+ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}
 {
-    m_leftEncoder.SetDistancePerPulse(kEncoderUnitsPerInch);
-    m_rightEncoder.SetDistancePerPulse(kEncoderUnitsPerInch);
+    m_leftMotor.SetInverted(kInverted);
+    m_rightMotor.SetInverted(kInverted);
 
-    m_leftEncoder.SetDistancePerPulse(kEncoderUnitsPerInch);
-    m_rightEncoder.SetDistancePerPulse(kEncoderUnitsPerInch);
+    // m_leftMotor.GetEncoder().SetPositionConversionFactor(kEncoderUnitsPerInch);
+    // m_rightMotor.GetEncoder().SetPositionConversionFactor(kEncoderUnitsPerInch);
 }
 
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic()
 {
-    std::cout << "Left Encoder: " << m_leftEncoder.GetDistance() << " Right Encoder: " << m_rightEncoder.GetDistance() << std::endl;
+    // std::cout << "Left Encoder: " << m_leftMotor.GetEncoder().GetPosition() << " Right Encoder: " << m_rightMotor.GetEncoder().GetPosition() << std::endl;
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)
@@ -41,21 +41,21 @@ void ClimberSubsystem::setSpeed(double speed)
 
 void ClimberSubsystem::ResetEncoders()
 {
-    m_leftEncoder.Reset();
-    m_rightEncoder.Reset();
+    m_leftMotor.GetEncoder().SetPosition(0);
+    m_rightMotor.GetEncoder().SetPosition(0);
 }
 
 double ClimberSubsystem::getLeftEncoderDistance()
 {
-    return m_leftEncoder.GetDistance();
+    return m_leftMotor.GetEncoder().GetPosition();
 }
 
 double ClimberSubsystem::getRightEncoderDistance()
 {
-    return m_rightEncoder.GetDistance();
+    return m_rightMotor.GetEncoder().GetPosition();
 }
 
 double ClimberSubsystem::getAverageEncoderDistance()
 {
-    return (m_leftEncoder.GetDistance() + m_rightEncoder.GetDistance()) / 2;
+    return (m_leftMotor.GetEncoder().GetPosition() + m_rightMotor.GetEncoder().GetPosition()) / 2;
 }

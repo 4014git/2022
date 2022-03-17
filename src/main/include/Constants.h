@@ -10,13 +10,14 @@ namespace DriveConstants
 
 namespace ClimberConstants
 {
-    constexpr int kLeftMotor = 10;
-    constexpr int kRightMotor = 11;
+    constexpr int kRightMotor = 10;
+    constexpr int kLeftMotor = 11;
     constexpr int kLeftEncoderFront = 0;
     constexpr int kLeftEncoderFollower = 1;
     constexpr int kRightEncoderFront = 2;
     constexpr int kRightEncoderFollower = 3;
     constexpr double kClimberSpeed = 0.5;
+    constexpr bool kInverted = false;
 
     constexpr double kEncoderUnitsPerRevolution = 48.0;
     constexpr double kPulleyDiameter = 2.0;
@@ -41,5 +42,8 @@ namespace AutoConstants
 namespace OIConstants
 {
     constexpr int driverControllerPort = 0;
-    constexpr int driverControllerLeftClimbButton = 1;
+    constexpr int driverControllerLeftClimberUpButton = 3;
+    constexpr int driverControllerLeftClimberDownButton = 5;
+    constexpr int driverControllerRightClimberUpButton = 4;
+    constexpr int driverControllerRightClimberDownButton = 6;
 }
