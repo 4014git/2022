@@ -16,6 +16,8 @@ class ClimberSubsystem : public frc2::SubsystemBase
     void setLeftSpeed(double speed);
     void setRightSpeed(double speed);
     void setSpeed(double speed);
+    void ResetLeftEncoder();
+    void ResetRightEncoder();
     void ResetEncoders();
     double getLeftEncoderDistance();
     double getRightEncoderDistance();

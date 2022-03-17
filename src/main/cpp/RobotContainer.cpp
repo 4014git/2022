@@ -22,6 +22,9 @@ void RobotContainer::ConfigureButtonBindings()
     frc2::JoystickButton(&m_driverController, OIConstants::driverControllerRightClimberDownButton)
         .WhenPressed(m_RightClimberDown)
         .WhenReleased(m_RightClimberStop);
+    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerClimberUpButton).WhenPressed(m_ClimberUp);
+    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerClimberDownButton)
+        .WhenPressed(m_ClimberDown);
 }
 
 frc2::Command *RobotContainer::GetAutonomousCommand()

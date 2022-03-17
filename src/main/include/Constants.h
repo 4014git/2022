@@ -29,8 +29,10 @@ constexpr int kLeftMotor = 11;
 // motor configurations
 constexpr bool kInverted = false;
 
-// climjb configuration
+// climb configuration
+constexpr double kManualClimberSpeed = 0.5;
 constexpr double kClimberSpeed = 0.5;
+constexpr double kClimberDistanceInches = 10.0;
 
 // encoder convertion factor
 constexpr double kEncoderUnitsPerRevolution = 48.0;
@@ -53,4 +55,6 @@ constexpr int driverControllerLeftClimberUpButton = 3;
 constexpr int driverControllerLeftClimberDownButton = 5;
 constexpr int driverControllerRightClimberUpButton = 4;
 constexpr int driverControllerRightClimberDownButton = 6;
+constexpr int driverControllerClimberDownButton = 11;
+constexpr int driverControllerClimberUpButton = 12;
 } // namespace OIConstants
