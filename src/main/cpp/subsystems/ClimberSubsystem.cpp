@@ -4,7 +4,10 @@
 
 using namespace ClimberConstants;
 
-ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_leftEncoder{m_leftMotor.GetEncoder()}, m_rightEncoder{m_rightMotor.GetEncoder()}
+ClimberSubsystem::ClimberSubsystem()
+    : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
+      m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
+      m_leftEncoder{m_leftMotor.GetEncoder()}, m_rightEncoder{m_rightMotor.GetEncoder()}
 {
     m_leftMotor.SetInverted(kInverted);
     m_rightMotor.SetInverted(kInverted);
@@ -16,7 +19,8 @@ ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxL
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic()
 {
-    std::cout << "Left Encoder: " << m_leftEncoder.GetPosition() << " Right Encoder: " << m_rightEncoder.GetPosition() << std::endl;
+    std::cout << "Left Encoder: " << m_leftEncoder.GetPosition() << " Right Encoder: " << m_rightEncoder.GetPosition()
+              << std::endl;
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)

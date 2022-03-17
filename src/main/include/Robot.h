@@ -7,18 +7,18 @@
 
 class Robot : public frc::TimedRobot
 {
-public:
-  void RobotInit() override;
-  void RobotPeriodic() override;
-  void DisabledInit() override;
-  void DisabledPeriodic() override;
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
+  public:
+    void RobotInit() override;
+    void RobotPeriodic() override;
+    void DisabledInit() override;
+    void DisabledPeriodic() override;
+    void AutonomousInit() override;
+    void AutonomousPeriodic() override;
+    void TeleopInit() override;
+    void TeleopPeriodic() override;
 
-private:
-  frc2::Command *m_autonomousCommand = nullptr;
+  private:
+    frc2::Command *m_autonomousCommand = nullptr;
 
-  RobotContainer m_container;
+    RobotContainer m_container;
 };
