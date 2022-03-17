@@ -31,8 +31,18 @@ void DrivetrainSubsystem::ResetEncoders()
     m_rightFront.SetSelectedSensorPosition(0);
 }
 
+double DrivetrainSubsystem::GetLeftEncoder()
+{
+    return m_leftFront.GetSelectedSensorPosition() / kEncoderUnitsPerInch;
+}
+
+double DrivetrainSubsystem::GetRightEncoder()
+{
+    return m_rightFront.GetSelectedSensorPosition() / kEncoderUnitsPerInch;
+}
+
 double DrivetrainSubsystem::GetAverageEncoderDistanceInches()
 {
     return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition()) /
-           (2.0 * DriveConstants::kEncoderUnitsPerInch);
+           (2.0 * kEncoderUnitsPerInch);
 }

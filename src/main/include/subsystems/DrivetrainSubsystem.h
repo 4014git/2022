@@ -13,6 +13,8 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     void ArcadeDrive(double fwd, double rot);
     void ResetEncoders();
     double GetAverageEncoderDistanceInches();
+    double GetLeftEncoder();
+    double GetRightEncoder();
 
   private:
     WPI_TalonFX m_leftFront;
