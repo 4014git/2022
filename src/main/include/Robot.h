@@ -5,8 +5,9 @@
 
 #include "RobotContainer.h"
 
-class Robot : public frc::TimedRobot {
- public:
+class Robot : public frc::TimedRobot
+{
+public:
   void RobotInit() override;
   void RobotPeriodic() override;
   void DisabledInit() override;
@@ -16,8 +17,8 @@ class Robot : public frc::TimedRobot {
   void TeleopInit() override;
   void TeleopPeriodic() override;
 
- private:
-  frc2::Command* m_autonomousCommand = nullptr;
+private:
+  frc2::Command *m_autonomousCommand = nullptr;
 
   RobotContainer m_container;
 };

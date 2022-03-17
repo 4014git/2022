@@ -11,7 +11,8 @@ RobotContainer::RobotContainer()
           {&m_drive}));
 }
 
-void RobotContainer::ConfigureButtonBindings() {
+void RobotContainer::ConfigureButtonBindings()
+{
   frc2::JoystickButton(&m_driverController, OIConstants::driverControllerLeftClimberUpButton).WhenPressed(m_LeftClimberUp).WhenReleased(m_LeftClimberStop);
   frc2::JoystickButton(&m_driverController, OIConstants::driverControllerLeftClimberDownButton).WhenPressed(m_LeftClimberDown).WhenReleased(m_LeftClimberStop);
   frc2::JoystickButton(&m_driverController, OIConstants::driverControllerRightClimberUpButton).WhenPressed(m_RightClimberUp).WhenReleased(m_RightClimberStop);

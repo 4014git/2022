@@ -31,12 +31,24 @@ private:
 
   Auto m_Auto{&m_drive};
 
-  frc2::InstantCommand m_LeftClimberUp{[this] { m_climber.setLeftSpeed(.5); }, {&m_climber}};
-  frc2::InstantCommand m_LeftClimberStop{[this] { m_climber.setLeftSpeed(0); }, {&m_climber}};
-  frc2::InstantCommand m_LeftClimberDown{[this] { m_climber.setLeftSpeed(-.5); }, {&m_climber}};
-  frc2::InstantCommand m_RightClimberUp{[this] { m_climber.setRightSpeed(.5); }, {&m_climber}};
-  frc2::InstantCommand m_RightClimberStop{[this] { m_climber.setRightSpeed(0); }, {&m_climber}};
-  frc2::InstantCommand m_RightClimberDown{[this] { m_climber.setRightSpeed(-.5); }, {&m_climber}};
+  frc2::InstantCommand m_LeftClimberUp{[this]
+                                       { m_climber.setLeftSpeed(.5); },
+                                       {&m_climber}};
+  frc2::InstantCommand m_LeftClimberStop{[this]
+                                         { m_climber.setLeftSpeed(0); },
+                                         {&m_climber}};
+  frc2::InstantCommand m_LeftClimberDown{[this]
+                                         { m_climber.setLeftSpeed(-.5); },
+                                         {&m_climber}};
+  frc2::InstantCommand m_RightClimberUp{[this]
+                                        { m_climber.setRightSpeed(.5); },
+                                        {&m_climber}};
+  frc2::InstantCommand m_RightClimberStop{[this]
+                                          { m_climber.setRightSpeed(0); },
+                                          {&m_climber}};
+  frc2::InstantCommand m_RightClimberDown{[this]
+                                          { m_climber.setRightSpeed(-.5); },
+                                          {&m_climber}};
 
   void ConfigureButtonBindings();
 };

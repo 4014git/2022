@@ -8,7 +8,8 @@
 
 using namespace ClimberConstants;
 
-ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_leftEncoder{m_leftMotor.GetEncoder()}, m_rightEncoder{m_rightMotor.GetEncoder()} {
+ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_leftEncoder{m_leftMotor.GetEncoder()}, m_rightEncoder{m_rightMotor.GetEncoder()}
+{
     m_leftMotor.SetInverted(kInverted);
     m_rightMotor.SetInverted(kInverted);
 
