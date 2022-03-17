@@ -25,12 +25,11 @@ void DrivetrainSubsystem::ArcadeDrive(double y, double x)
 
 void DrivetrainSubsystem::ResetEncoders()
 {
-  m_leftFront.SetSelectedSensorPosition(0, 0, 10);
-  m_rightFront.SetSelectedSensorPosition(0, 0, 10);
+  m_leftFront.SetSelectedSensorPosition(0);
+  m_rightFront.SetSelectedSensorPosition(0);
 }
 
 double DrivetrainSubsystem::GetAverageEncoderDistanceInches()
 {
-  // the gorgeous one-liner
-  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition()) / (2.0 * AutoConstants::kEncoderUnitsPerInch);
+  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition()) / (2 * AutoConstants::kEncoderUnitsPerInch);
 }
