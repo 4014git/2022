@@ -11,9 +11,9 @@ DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{LeftMotorFront}, m_left
   m_leftFollower.Follow(m_leftFront);
   m_rightFollower.Follow(m_rightFront);
 
-  m_rightFront.SetInverted(TalonFXInvertType::Clockwise);
+  m_rightFront.SetInverted(TalonFXInvertType::CounterClockwise);
   m_rightFollower.SetInverted(TalonFXInvertType::FollowMaster);
-  m_leftFront.SetInverted(TalonFXInvertType::CounterClockwise);
+  m_leftFront.SetInverted(TalonFXInvertType::Clockwise);
   m_leftFollower.SetInverted(TalonFXInvertType::FollowMaster);
 }
 
@@ -26,7 +26,7 @@ void DrivetrainSubsystem::ResetEncoders() {
   m_rightFront.SetSelectedSensorPosition(0, 0, 10);
 }
 
-double DrivetrainSubsystem::GetAverageEncoderDistance() {
+double DrivetrainSubsystem::GetAverageEncoderDistanceInches() {
   // the gorgeous one-liner
-  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition())/2.0;
+  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition())/(2.0*AutoConstants::kEncoderUnitsPerInch);
 }

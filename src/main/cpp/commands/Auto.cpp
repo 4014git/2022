@@ -12,6 +12,6 @@ using namespace AutoConstants;
 Auto::Auto(DrivetrainSubsystem* m_drive) {
   AddCommands(
     DriveDistance(m_drive,kAutoDriveForwardDistanceInches,kAutoDriveSpeed),
-    DriveDistance(m_drive,-kAutoDriveForwardBackInches,-kAutoDriveSpeed)
+    DriveDistance(m_drive,kAutoDriveForwardBackInches,-kAutoDriveSpeed)
   );
 }

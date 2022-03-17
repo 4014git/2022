@@ -9,7 +9,13 @@ namespace DriveConstants {
 }
 
 namespace AutoConstants {
-    constexpr double kAutoDriveSpeed = 0.5;
+    constexpr double kEncoderUnitsPerRevolution = 2048.0;
+    constexpr double kWheelDiameterInches = 4.0;
+    constexpr double kWheelCircumferenceInches = kWheelDiameterInches * M_PI;
+    constexpr double kGearRatio = 10.75;
+    constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution * kGearRatio / kWheelCircumferenceInches;
+
+    constexpr double kAutoDriveSpeed = .5;
     constexpr double kAutoDriveForwardDistanceInches = 60;
     constexpr double kAutoDriveForwardBackInches = 60;
 }

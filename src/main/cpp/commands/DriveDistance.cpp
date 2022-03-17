@@ -1,4 +1,5 @@
 #include "commands/DriveDistance.h"
+#include <iostream>
 
 DriveDistance::DriveDistance(DrivetrainSubsystem* subsystem, double distance, double speed)
   : m_drive(subsystem) {
@@ -24,5 +25,9 @@ void DriveDistance::End(bool interrupted) {
 
 // Returns true when the command should end.
 bool DriveDistance::IsFinished() {
-  return m_drive->GetAverageEncoderDistance() >= m_distance;
+  // std::cout<<"Distance: "<<m_drive->GetAverageEncoderDistanceInches()<<"\n";
+  if(m_speed > 0)
+    return m_drive->GetAverageEncoderDistanceInches() >= m_distance;
+  else
+    return m_drive->GetAverageEncoderDistanceInches() <= -m_distance;
 }
