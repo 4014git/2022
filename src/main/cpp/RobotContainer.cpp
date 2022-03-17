@@ -10,20 +10,20 @@ RobotContainer::RobotContainer()
 
 void RobotContainer::ConfigureButtonBindings()
 {
-    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerLeftClimberUpButton)
+    frc2::JoystickButton(&m_operatorController, OIConstants::driverControllerLeftClimberUpButton)
         .WhenPressed(m_LeftClimberUp)
         .WhenReleased(m_LeftClimberStop);
-    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerLeftClimberDownButton)
+    frc2::JoystickButton(&m_operatorController, OIConstants::driverControllerLeftClimberDownButton)
         .WhenPressed(m_LeftClimberDown)
         .WhenReleased(m_LeftClimberStop);
-    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerRightClimberUpButton)
+    frc2::JoystickButton(&m_operatorController, OIConstants::driverControllerRightClimberUpButton)
         .WhenPressed(m_RightClimberUp)
         .WhenReleased(m_RightClimberStop);
-    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerRightClimberDownButton)
+    frc2::JoystickButton(&m_operatorController, OIConstants::driverControllerRightClimberDownButton)
         .WhenPressed(m_RightClimberDown)
         .WhenReleased(m_RightClimberStop);
-    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerClimberUpButton).WhenPressed(m_ClimberUp);
-    frc2::JoystickButton(&m_driverController, OIConstants::driverControllerClimberDownButton)
+    frc2::JoystickButton(&m_operatorController, OIConstants::driverControllerClimberUpButton).WhenPressed(m_ClimberUp);
+    frc2::JoystickButton(&m_operatorController, OIConstants::driverControllerClimberDownButton)
         .WhenPressed(m_ClimberDown);
 }
 

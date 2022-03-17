@@ -19,6 +19,7 @@ class RobotContainer
 
   private:
     frc::Joystick m_driverController{OIConstants::driverControllerPort};
+    frc::Joystick m_operatorController{OIConstants::operatorControllerPort};
 
     DrivetrainSubsystem m_drive;
     ClimberSubsystem m_climber;

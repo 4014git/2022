@@ -51,6 +51,7 @@ constexpr double kAutoDriveDistanceInches = 60;
 namespace OIConstants
 {
 constexpr int driverControllerPort = 0;
+constexpr int operatorControllerPort = 1;
 constexpr int driverControllerLeftClimberUpButton = 3;
 constexpr int driverControllerLeftClimberDownButton = 5;
 constexpr int driverControllerRightClimberUpButton = 4;
