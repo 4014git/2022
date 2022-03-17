@@ -8,19 +8,18 @@
 
 using namespace ClimberConstants;
 
-ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}
-{
+ClimberSubsystem::ClimberSubsystem() : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}, m_leftEncoder{m_leftMotor.GetEncoder()}, m_rightEncoder{m_rightMotor.GetEncoder()} {
     m_leftMotor.SetInverted(kInverted);
     m_rightMotor.SetInverted(kInverted);
 
-    // m_leftMotor.GetEncoder().SetPositionConversionFactor(kEncoderUnitsPerInch);
-    // m_rightMotor.GetEncoder().SetPositionConversionFactor(kEncoderUnitsPerInch);
+    m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
+    m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
 }
 
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic()
 {
-    // std::cout << "Left Encoder: " << m_leftMotor.GetEncoder().GetPosition() << " Right Encoder: " << m_rightMotor.GetEncoder().GetPosition() << std::endl;
+    std::cout << "Left Encoder: " << m_leftEncoder.GetPosition() << " Right Encoder: " << m_rightEncoder.GetPosition() << std::endl;
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)
@@ -41,21 +40,21 @@ void ClimberSubsystem::setSpeed(double speed)
 
 void ClimberSubsystem::ResetEncoders()
 {
-    m_leftMotor.GetEncoder().SetPosition(0);
-    m_rightMotor.GetEncoder().SetPosition(0);
+    m_leftEncoder.SetPosition(0);
+    m_rightEncoder.SetPosition(0);
 }
 
 double ClimberSubsystem::getLeftEncoderDistance()
 {
-    return m_leftMotor.GetEncoder().GetPosition();
+    return m_leftEncoder.GetPosition();
 }
 
 double ClimberSubsystem::getRightEncoderDistance()
 {
-    return m_rightMotor.GetEncoder().GetPosition();
+    return m_rightEncoder.GetPosition();
 }
 
 double ClimberSubsystem::getAverageEncoderDistance()
 {
-    return (m_leftMotor.GetEncoder().GetPosition() + m_rightMotor.GetEncoder().GetPosition()) / 2;
+    return (m_leftEncoder.GetPosition() + m_rightEncoder.GetPosition()) / 2;
 }

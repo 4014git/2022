@@ -28,4 +28,7 @@ public:
 private:
   rev::CANSparkMax m_leftMotor;
   rev::CANSparkMax m_rightMotor;
+
+  rev::SparkMaxRelativeEncoder m_leftEncoder;
+  rev::SparkMaxRelativeEncoder m_rightEncoder;
 };
