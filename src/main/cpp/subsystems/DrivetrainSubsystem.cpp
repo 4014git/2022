@@ -2,7 +2,8 @@
 
 using namespace DriveConstants;
 
-DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{LeftMotorFront}, m_leftFollower{LeftMotorFollower}, m_rightFront{RightMotorFront}, m_rightFollower{RightMotorFollower} {
+DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{kLeftMotorFront}, m_leftFollower{kLeftMotorFollower}, m_rightFront{kRightMotorFront}, m_rightFollower{kRightMotorFollower}
+{
   m_leftFront.ConfigFactoryDefault();
   m_leftFollower.ConfigFactoryDefault();
   m_rightFront.ConfigFactoryDefault();
@@ -17,16 +18,19 @@ DrivetrainSubsystem::DrivetrainSubsystem() : m_leftFront{LeftMotorFront}, m_left
   m_leftFollower.SetInverted(TalonFXInvertType::FollowMaster);
 }
 
-void DrivetrainSubsystem::ArcadeDrive(double y, double x) {
+void DrivetrainSubsystem::ArcadeDrive(double y, double x)
+{
   m_drive.ArcadeDrive(y, x);
 }
 
-void DrivetrainSubsystem::ResetEncoders() {
+void DrivetrainSubsystem::ResetEncoders()
+{
   m_leftFront.SetSelectedSensorPosition(0, 0, 10);
   m_rightFront.SetSelectedSensorPosition(0, 0, 10);
 }
 
-double DrivetrainSubsystem::GetAverageEncoderDistanceInches() {
+double DrivetrainSubsystem::GetAverageEncoderDistanceInches()
+{
   // the gorgeous one-liner
-  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition())/(2.0*AutoConstants::kEncoderUnitsPerInch);
+  return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition()) / (2.0 * AutoConstants::kEncoderUnitsPerInch);
 }

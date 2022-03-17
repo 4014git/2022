@@ -9,9 +9,9 @@ using namespace AutoConstants;
 // NOTE:  Consider using this command inline, rather than writing a subclass.
 // For more information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-Auto::Auto(DrivetrainSubsystem* m_drive) {
+Auto::Auto(DrivetrainSubsystem *m_drive)
+{
   AddCommands(
-    DriveDistance(m_drive,kAutoDriveForwardDistanceInches,kAutoDriveSpeed),
-    DriveDistance(m_drive,kAutoDriveForwardBackInches,-kAutoDriveSpeed)
-  );
+      DriveDistance(m_drive, kAutoDriveForwardDistanceInches, kAutoDriveSpeed),
+      DriveDistance(m_drive, kAutoDriveForwardBackInches, -kAutoDriveSpeed));
 }

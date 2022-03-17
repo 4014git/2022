@@ -10,7 +10,8 @@
 #include <commands/DriveDistance.h>
 
 class Auto
-    : public frc2::CommandHelper<frc2::SequentialCommandGroup, Auto> {
- public:
-  Auto(DrivetrainSubsystem* drivetrain);
+    : public frc2::CommandHelper<frc2::SequentialCommandGroup, Auto>
+{
+public:
+  Auto(DrivetrainSubsystem *drivetrain);
 };

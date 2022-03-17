@@ -13,9 +13,10 @@
  * Drive forward a distance using the encoders.
  */
 class DriveDistance
-    : public frc2::CommandHelper<frc2::CommandBase, DriveDistance> {
- public:
-  DriveDistance(DrivetrainSubsystem* subsystem, double distance, double speed);
+    : public frc2::CommandHelper<frc2::CommandBase, DriveDistance>
+{
+public:
+  DriveDistance(DrivetrainSubsystem *subsystem, double distance, double speed);
 
   void Initialize() override;
 
@@ -25,8 +26,8 @@ class DriveDistance
 
   bool IsFinished() override;
 
-  private:
-    DrivetrainSubsystem* m_drive;
-    double m_distance;
-    double m_speed;
+private:
+  DrivetrainSubsystem *m_drive;
+  double m_distance;
+  double m_speed;
 };

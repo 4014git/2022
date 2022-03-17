@@ -3,8 +3,11 @@
 #include <frc/Joystick.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/FunctionalCommand.h>
+#include <frc2/command/InstantCommand.h>
+#include <frc2/command/button/JoystickButton.h>
 
 #include "subsystems/DrivetrainSubsystem.h"
+#include "subsystems/ClimberSubsystem.h"
 #include "commands/Auto.h"
 
 /**
@@ -14,17 +17,23 @@
  * scheduler calls).  Instead, the structure of the robot (including subsystems,
  * commands, and button mappings) should be declared here.
  */
-class RobotContainer {
- public:
+class RobotContainer
+{
+public:
   RobotContainer();
-  frc2::Command* GetAutonomousCommand();
+  frc2::Command *GetAutonomousCommand();
 
- private:
+private:
   frc::Joystick m_driverController{OIConstants::driverControllerPort};
 
   DrivetrainSubsystem m_drive;
+  ClimberSubsystem m_climber;
 
   Auto m_Auto{&m_drive};
+
+  frc2::InstantCommand m_LeftClimberUp{[this] { m_climber.setRightSpeed(.5); }, {&m_climber}};
+  frc2::InstantCommand m_LeftClimberStop{[this] { m_climber.setRightSpeed(0); }, {&m_climber}};
+  frc2::InstantCommand m_LeftClimberDown{[this] { m_climber.setRightSpeed(-.5); }, {&m_climber}};
 
   void ConfigureButtonBindings();
 };
