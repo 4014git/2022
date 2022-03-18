@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ctre/Phoenix.h>
+
 namespace DriveConstants
 {
 // can IDs
@@ -18,6 +20,12 @@ constexpr double kWheelDiameterInches = 4.0;
 constexpr double kWheelCircumferenceInches = kWheelDiameterInches * M_PI;
 constexpr double kGearRatio = 10.75 / 1.0;
 constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution * kGearRatio / kWheelCircumferenceInches;
+
+// nuetral mode
+constexpr NeutralMode kNeutralMode = NeutralMode::Coast;
+
+// driving type
+constexpr bool kSquareInputs = false;
 } // namespace DriveConstants
 
 namespace ClimberConstants
@@ -30,13 +38,13 @@ constexpr int kLeftMotor = 11;
 constexpr bool kInverted = false;
 
 // climb configuration
-constexpr double kManualClimberSpeed = 0.5;
+constexpr double kManualClimberSpeed = 1;
 constexpr double kClimberSpeed = 0.5;
 constexpr double kClimberDistanceInches = 10.0;
 
 // encoder convertion factor
-constexpr double kEncoderUnitsPerRevolution = 48.0;
-constexpr double kPulleyDiameter = 2.0;
+constexpr double kEncoderUnitsPerRevolution = 42.0;
+constexpr double kPulleyDiameter = .75;
 constexpr double kPulleyCircumference = kPulleyDiameter * M_PI;
 constexpr double kGearRatio = 20.0;
 constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution / (kGearRatio * kPulleyCircumference);
@@ -44,7 +52,7 @@ constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution / (kGearRatio
 
 namespace AutoConstants
 {
-constexpr double kAutoDriveSpeed = .5;
+constexpr double kAutoDriveSpeed = 0.75;
 constexpr double kAutoDriveDistanceInches = 60;
 } // namespace AutoConstants
 
@@ -52,10 +60,13 @@ namespace OIConstants
 {
 constexpr int driverControllerPort = 0;
 constexpr int operatorControllerPort = 1;
-constexpr int driverControllerLeftClimberUpButton = 3;
-constexpr int driverControllerLeftClimberDownButton = 5;
-constexpr int driverControllerRightClimberUpButton = 4;
-constexpr int driverControllerRightClimberDownButton = 6;
-constexpr int driverControllerClimberDownButton = 11;
-constexpr int driverControllerClimberUpButton = 12;
+constexpr int driverControllerChangeSquareInputs = 1;
+constexpr int operatorControllerLeftClimberUpButton = 3;
+constexpr int operatorControllerLeftClimberDownButton = 5;
+constexpr int operatorControllerRightClimberUpButton = 4;
+constexpr int operatorControllerRightClimberDownButton = 6;
+constexpr int operatorControllerBothClimberDownButton = 11;
+constexpr int operatorControllerBothClimberUpButton = 12;
+constexpr int operatorControllerClimberDownButton = 13;
+constexpr int operatorControllerClimberUpButton = 14;
 } // namespace OIConstants

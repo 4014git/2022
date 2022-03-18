@@ -1,6 +1,6 @@
 #include "subsystems/ClimberSubsystem.h"
 
-#include <iostream>
+// #include <iostream>
 
 using namespace ClimberConstants;
 
@@ -19,8 +19,8 @@ ClimberSubsystem::ClimberSubsystem()
 // This method will be called once per scheduler run
 void ClimberSubsystem::Periodic()
 {
-    std::cout << "Left Encoder: " << m_leftEncoder.GetPosition() << " Right Encoder: " << m_rightEncoder.GetPosition()
-              << std::endl;
+    // std::cout << "Left Encoder: " << m_leftEncoder.GetPosition() << " Right Encoder: " << m_rightEncoder.GetPosition()
+    //           << std::endl;
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)

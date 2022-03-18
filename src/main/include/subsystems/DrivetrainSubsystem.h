@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ctre/Phoenix.h"
+#include <ctre/Phoenix.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc2/command/SubsystemBase.h>
 
@@ -15,6 +15,8 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     double GetAverageEncoderDistanceInches();
     double GetLeftEncoder();
     double GetRightEncoder();
+    void SetBrakeMode(bool brake);
+    void SetSquareInputs(bool setSquareInputs);
 
   private:
     WPI_TalonFX m_leftFront;
@@ -23,4 +25,6 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     WPI_TalonFX m_rightFollower;
 
     frc::DifferentialDrive m_drive{m_leftFront, m_rightFront};
+
+    bool squareInputs;
 };

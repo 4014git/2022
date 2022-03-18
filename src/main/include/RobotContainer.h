@@ -34,25 +34,33 @@ class RobotContainer
     frc2::InstantCommand m_RightClimberStop{[this] { m_climber.setRightSpeed(0); }, {&m_climber}};
     frc2::InstantCommand m_RightClimberDown{[this] { m_climber.setRightSpeed(-ClimberConstants::kManualClimberSpeed); },
                                             {&m_climber}};
-    frc2::ParallelCommandGroup m_ClimberUp{
-        frc2::FunctionalCommand(
-            [this] { m_climber.ResetLeftEncoder(); },
-            [this] { m_climber.setLeftSpeed(ClimberConstants::kClimberSpeed); },
-            [this](bool interrupted) { m_climber.setLeftSpeed(0); },
-            [this] { return m_climber.getLeftEncoderDistance() >= ClimberConstants::kClimberDistanceInches; }),
-        frc2::FunctionalCommand(
-            [this] { m_climber.ResetRightEncoder(); },
-            [this] { m_climber.setRightSpeed(ClimberConstants::kClimberSpeed); },
-            [this](bool interrupted) { m_climber.setRightSpeed(0); },
-            [this] { return m_climber.getRightEncoderDistance() >= ClimberConstants::kClimberDistanceInches; })};
+    frc2::InstantCommand m_BothClimbersUp{[this] { m_climber.setSpeed(ClimberConstants::kManualClimberSpeed); }, {&m_climber}};
+    frc2::InstantCommand m_BothClimbersStop{[this] { m_climber.setSpeed(0); }, {&m_climber}};
+    frc2::InstantCommand m_BothClimbersDown{[this] { m_climber.setSpeed(-ClimberConstants::kManualClimberSpeed); }, {&m_climber}};
+    
+    frc2::InstantCommand m_setSquareInputsPressed{[this] { m_drive.SetSquareInputs(!DriveConstants::kSquareInputs); }, {&m_drive}};
+    frc2::InstantCommand m_setSquareInputsReleased{[this] { m_drive.SetSquareInputs(DriveConstants::kSquareInputs); }, {&m_drive}};
 
-    frc2::ParallelCommandGroup m_ClimberDown{
-        frc2::FunctionalCommand([this] {}, [this] { m_climber.setLeftSpeed(-ClimberConstants::kClimberSpeed); },
-                                [this](bool interrupted) { m_climber.setLeftSpeed(0); },
-                                [this] { return m_climber.getLeftEncoderDistance() <= 0; }),
-        frc2::FunctionalCommand([this] {}, [this] { m_climber.setRightSpeed(-ClimberConstants::kClimberSpeed); },
-                                [this](bool interrupted) { m_climber.setRightSpeed(0); },
-                                [this] { return m_climber.getRightEncoderDistance() <= 0; })};
+
+    // frc2::ParallelCommandGroup m_ClimberUp{
+    //     frc2::FunctionalCommand(
+    //         [this] { m_climber.ResetLeftEncoder(); },
+    //         [this] { m_climber.setLeftSpeed(ClimberConstants::kClimberSpeed); },
+    //         [this](bool interrupted) { m_climber.setLeftSpeed(0); },
+    //         [this] { return m_climber.getLeftEncoderDistance() >= ClimberConstants::kClimberDistanceInches; }),
+    //     frc2::FunctionalCommand(
+    //         [this] { m_climber.ResetRightEncoder(); },
+    //         [this] { m_climber.setRightSpeed(ClimberConstants::kClimberSpeed); },
+    //         [this](bool interrupted) { m_climber.setRightSpeed(0); },
+    //         [this] { return m_climber.getRightEncoderDistance() >= ClimberConstants::kClimberDistanceInches; })};
+
+    // frc2::ParallelCommandGroup m_ClimberDown{
+    //     frc2::FunctionalCommand([this] {}, [this] { m_climber.setLeftSpeed(-ClimberConstants::kClimberSpeed); },
+    //                             [this](bool interrupted) { m_climber.setLeftSpeed(0); },
+    //                             [this] { return m_climber.getLeftEncoderDistance() <= 0; }),
+    //     frc2::FunctionalCommand([this] {}, [this] { m_climber.setRightSpeed(-ClimberConstants::kClimberSpeed); },
+    //                             [this](bool interrupted) { m_climber.setRightSpeed(0); },
+    //                             [this] { return m_climber.getRightEncoderDistance() <= 0; })};
 
     frc2::SequentialCommandGroup m_Auto{
         frc2::FunctionalCommand(
