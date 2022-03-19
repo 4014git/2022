@@ -41,16 +41,6 @@ constexpr bool kRightInverted = false;
 
 // climb configuration
 constexpr double kManualClimberSpeed = 1.0;
-constexpr double kClimberSpeed = 0.5;
-constexpr double kClimberMaxDistanceInches = 10.0;
-constexpr double kClimberMinDistanceInches = 1.0;
-
-// encoder convertion factor
-constexpr double kEncoderUnitsPerRevolution = 42.0;
-constexpr double kPulleyDiameter = .75;
-constexpr double kPulleyCircumference = kPulleyDiameter * M_PI;
-constexpr double kGearRatio = 20.0;
-constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution / (kGearRatio * kPulleyCircumference);
 
 // neutral mode
 constexpr rev::CANSparkMax::IdleMode kNeutralMode = rev::CANSparkMax::IdleMode::kBrake;
@@ -64,9 +54,14 @@ constexpr double kAutoDriveDistanceInches = 60;
 
 namespace OIConstants
 {
+// controller ports
 constexpr int driverControllerPort = 0;
 constexpr int operatorControllerPort = 1;
+
+// driver controller buttons
 constexpr int driverControllerChangeSquareInputs = 1;
+
+// operator controller buttons
 constexpr int operatorControllerLeftClimberUpButton = 5;
 constexpr int operatorControllerLeftClimberDownButton = 3;
 constexpr int operatorControllerRightClimberUpButton = 6;

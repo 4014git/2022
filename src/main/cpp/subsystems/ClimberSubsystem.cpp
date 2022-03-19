@@ -12,9 +12,6 @@ ClimberSubsystem::ClimberSubsystem()
 
     m_leftMotor.SetIdleMode(kNeutralMode);
     m_rightMotor.SetIdleMode(kNeutralMode);
-
-    m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
-    m_rightEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)
@@ -47,19 +44,4 @@ void ClimberSubsystem::ResetEncoders()
 {
     m_leftEncoder.SetPosition(0);
     m_rightEncoder.SetPosition(0);
-}
-
-double ClimberSubsystem::getLeftEncoderDistance()
-{
-    return m_leftEncoder.GetPosition() / kEncoderUnitsPerInch;
-}
-
-double ClimberSubsystem::getRightEncoderDistance()
-{
-    return m_rightEncoder.GetPosition() / kEncoderUnitsPerInch;
-}
-
-double ClimberSubsystem::getAverageEncoderDistance()
-{
-    return (m_leftEncoder.GetPosition() + m_rightEncoder.GetPosition()) / (2.0 * kEncoderUnitsPerInch);
 }
