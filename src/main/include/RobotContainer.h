@@ -38,13 +38,6 @@ class RobotContainer
     frc2::InstantCommand m_changeSquareInputPressed{[this] { m_drive.SetSquareInputs(!DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
     frc2::InstantCommand m_changeSquareInputReleased{[this] { m_drive.SetSquareInputs(DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
 
-    frc2::InstantCommand m_BothClimbersAutoUp{[this]{if (m_climber.getAverageEncoderDistance() >= ClimberConstants::kClimberMaxDistanceInches) {
-                                                        m_climber.setSpeed(ClimberConstants::kManualClimberSpeed);
-                                                     }},{&m_climber}};
-    frc2::InstantCommand m_BothClimbersAutoDown{[this]{if (m_climber.getAverageEncoderDistance() <= ClimberConstants::kClimberMinDistanceInches) {
-                                                        m_climber.setSpeed(-ClimberConstants::kManualClimberSpeed);
-                                                     }},{&m_climber}};
-
 
     // frc2::ParallelCommandGroup m_ClimberUp{
     //     frc2::FunctionalCommand(
