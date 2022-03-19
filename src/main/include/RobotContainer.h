@@ -32,6 +32,8 @@ class RobotContainer
                                           {&m_climber}};
     frc2::InstantCommand m_RightClimberDown{[this] { m_climber.setRightSpeed(-ClimberConstants::kManualClimberSpeed); },
                                             {&m_climber}};
+    frc2::InstantCommand m_ClimberByJoystick{[this] { m_climber.setSpeed(-m_operatorController.GetY()); },
+                                            {&m_climber}};
     
     frc2::InstantCommand m_changeSquareInputPressed{[this] { m_drive.SetSquareInputs(!DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
     frc2::InstantCommand m_changeSquareInputReleased{[this] { m_drive.SetSquareInputs(DriveConstants::kDefualtSquareInputs); }, {&m_drive}};

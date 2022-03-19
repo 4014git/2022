@@ -10,6 +10,7 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
 {
   public:
     DrivetrainSubsystem();
+
     void ArcadeDrive(double fwd, double rot);
     void ResetEncoders();
     double GetLeftEncoderDistance();

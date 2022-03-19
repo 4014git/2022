@@ -11,8 +11,6 @@ class ClimberSubsystem : public frc2::SubsystemBase
   public:
     ClimberSubsystem();
 
-    void Periodic() override;
-
     void setLeftSpeed(double speed);
     void setRightSpeed(double speed);
     void setSpeed(double speed);

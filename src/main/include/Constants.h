@@ -72,4 +72,5 @@ constexpr int operatorControllerRightClimberUpButton = 6;
 constexpr int operatorControllerRightClimberDownButton = 4;
 constexpr int operatorControllerBothClimberDownButton = 11;
 constexpr int operatorControllerBothClimberUpButton = 12;
+constexpr int operatorControllerClimberByJoystickButton = 1;
 } // namespace OIConstants

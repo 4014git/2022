@@ -17,10 +17,6 @@ ClimberSubsystem::ClimberSubsystem()
     m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
 }
 
-void ClimberSubsystem::Periodic()
-{
-}
-
 void ClimberSubsystem::setLeftSpeed(double speed)
 {
     m_leftMotor.Set(speed);
