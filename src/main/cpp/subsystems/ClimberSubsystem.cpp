@@ -11,10 +11,10 @@ ClimberSubsystem::ClimberSubsystem()
     m_rightMotor.SetInverted(kRightInverted);
 
     m_leftMotor.SetIdleMode(kNeutralMode);
-    m_leftMotor.SetIdleMode(kNeutralMode);
+    m_rightMotor.SetIdleMode(kNeutralMode);
 
     m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
-    m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
+    m_rightEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
 }
 
 void ClimberSubsystem::Periodic()
@@ -55,15 +55,15 @@ void ClimberSubsystem::ResetEncoders()
 
 double ClimberSubsystem::getLeftEncoderDistance()
 {
-    return m_leftEncoder.GetPosition();
+    return m_leftEncoder.GetPosition() / kEncoderUnitsPerInch;
 }
 
 double ClimberSubsystem::getRightEncoderDistance()
 {
-    return m_rightEncoder.GetPosition();
+    return m_rightEncoder.GetPosition() / kEncoderUnitsPerInch;
 }
 
 double ClimberSubsystem::getAverageEncoderDistance()
 {
-    return (m_leftEncoder.GetPosition() + m_rightEncoder.GetPosition()) / 2.0;
+    return (m_leftEncoder.GetPosition() + m_rightEncoder.GetPosition()) / (2.0 * kEncoderUnitsPerInch);
 }
