@@ -4,7 +4,7 @@ using namespace DriveConstants;
 
 DrivetrainSubsystem::DrivetrainSubsystem()
     : m_leftFront{kLeftMotorFront}, m_leftFollower{kLeftMotorFollower}, m_rightFront{kRightMotorFront},
-      m_rightFollower{kRightMotorFollower}, squareInputs{kSquareInputs}
+      m_rightFollower{kRightMotorFollower}, squareInputs{kDefualtSquareInputs}
 {
     m_leftFront.ConfigFactoryDefault();
     m_leftFollower.ConfigFactoryDefault();
@@ -36,20 +36,32 @@ void DrivetrainSubsystem::ResetEncoders()
     m_rightFront.SetSelectedSensorPosition(0);
 }
 
-double DrivetrainSubsystem::GetLeftEncoder()
+double DrivetrainSubsystem::GetLeftEncoderDistance()
 {
     return m_leftFront.GetSelectedSensorPosition() / kEncoderUnitsPerInch;
 }
 
-double DrivetrainSubsystem::GetRightEncoder()
+double DrivetrainSubsystem::GetRightEncoderDistance()
 {
     return m_rightFront.GetSelectedSensorPosition() / kEncoderUnitsPerInch;
 }
 
-double DrivetrainSubsystem::GetAverageEncoderDistanceInches()
+double DrivetrainSubsystem::GetAverageEncoderDistance()
 {
     return (m_leftFront.GetSelectedSensorPosition() + m_rightFront.GetSelectedSensorPosition()) /
            (2.0 * kEncoderUnitsPerInch);
+}
+
+double DrivetrainSubsystem::GetLeftEncoderVelocity(){
+    return m_leftFront.GetSelectedSensorVelocity();
+}
+
+double DrivetrainSubsystem::GetRightEncoderVelocity(){
+    return m_rightFront.GetSelectedSensorVelocity();
+}
+
+double DrivetrainSubsystem::GetAverageEncoderVelocity(){
+    return (m_leftFront.GetSelectedSensorVelocity()+m_rightFront.GetSelectedSensorVelocity())/2.0;
 }
 
 void DrivetrainSubsystem::SetSquareInputs(bool setSquareInputs){

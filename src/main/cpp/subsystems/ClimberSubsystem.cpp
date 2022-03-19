@@ -1,7 +1,5 @@
 #include "subsystems/ClimberSubsystem.h"
 
-// #include <iostream>
-
 using namespace ClimberConstants;
 
 ClimberSubsystem::ClimberSubsystem()
@@ -9,18 +7,18 @@ ClimberSubsystem::ClimberSubsystem()
       m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
       m_leftEncoder{m_leftMotor.GetEncoder()}, m_rightEncoder{m_rightMotor.GetEncoder()}
 {
-    m_leftMotor.SetInverted(kInverted);
-    m_rightMotor.SetInverted(kInverted);
+    m_leftMotor.SetInverted(kLeftnverted);
+    m_rightMotor.SetInverted(kRightInverted);
+
+    m_leftMotor.SetIdleMode(kNeutralMode);
+    m_leftMotor.SetIdleMode(kNeutralMode);
 
     m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
     m_leftEncoder.SetPositionConversionFactor(kEncoderUnitsPerInch);
 }
 
-// This method will be called once per scheduler run
 void ClimberSubsystem::Periodic()
 {
-    // std::cout << "Left Encoder: " << m_leftEncoder.GetPosition() << " Right Encoder: " << m_rightEncoder.GetPosition()
-    //           << std::endl;
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)

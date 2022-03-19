@@ -12,9 +12,12 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     DrivetrainSubsystem();
     void ArcadeDrive(double fwd, double rot);
     void ResetEncoders();
-    double GetAverageEncoderDistanceInches();
-    double GetLeftEncoder();
-    double GetRightEncoder();
+    double GetLeftEncoderDistance();
+    double GetRightEncoderDistance();
+    double GetAverageEncoderDistance();
+    double GetLeftEncoderVelocity();
+    double GetRightEncoderVelocity();
+    double GetAverageEncoderVelocity();
     void SetBrakeMode(bool brake);
     void SetSquareInputs(bool setSquareInputs);
 

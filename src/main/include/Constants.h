@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ctre/Phoenix.h>
+#include <rev/CANSparkMax.h>
 
 namespace DriveConstants
 {
@@ -21,11 +22,11 @@ constexpr double kWheelCircumferenceInches = kWheelDiameterInches * M_PI;
 constexpr double kGearRatio = 10.75 / 1.0;
 constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution * kGearRatio / kWheelCircumferenceInches;
 
-// nuetral mode
+// neutral mode
 constexpr NeutralMode kNeutralMode = NeutralMode::Coast;
 
-// driving type
-constexpr bool kSquareInputs = false;
+// default driving type
+constexpr bool kDefualtSquareInputs = false;
 } // namespace DriveConstants
 
 namespace ClimberConstants
@@ -35,10 +36,11 @@ constexpr int kRightMotor = 10;
 constexpr int kLeftMotor = 11;
 
 // motor configurations
-constexpr bool kInverted = false;
+constexpr bool kLeftnverted = true;
+constexpr bool kRightInverted = false;
 
 // climb configuration
-constexpr double kManualClimberSpeed = 1;
+constexpr double kManualClimberSpeed = 1.0;
 constexpr double kClimberSpeed = 0.5;
 constexpr double kClimberDistanceInches = 10.0;
 
@@ -48,11 +50,14 @@ constexpr double kPulleyDiameter = .75;
 constexpr double kPulleyCircumference = kPulleyDiameter * M_PI;
 constexpr double kGearRatio = 20.0;
 constexpr double kEncoderUnitsPerInch = kEncoderUnitsPerRevolution / (kGearRatio * kPulleyCircumference);
+
+// neutral mode
+constexpr rev::CANSparkMax::IdleMode kNeutralMode = rev::CANSparkMax::IdleMode::kBrake;
 } // namespace ClimberConstants
 
 namespace AutoConstants
 {
-constexpr double kAutoDriveSpeed = 0.75;
+constexpr double kAutoDriveSpeed = 0.6;
 constexpr double kAutoDriveDistanceInches = 60;
 } // namespace AutoConstants
 
@@ -61,12 +66,10 @@ namespace OIConstants
 constexpr int driverControllerPort = 0;
 constexpr int operatorControllerPort = 1;
 constexpr int driverControllerChangeSquareInputs = 1;
-constexpr int operatorControllerLeftClimberUpButton = 3;
-constexpr int operatorControllerLeftClimberDownButton = 5;
-constexpr int operatorControllerRightClimberUpButton = 4;
-constexpr int operatorControllerRightClimberDownButton = 6;
+constexpr int operatorControllerLeftClimberUpButton = 5;
+constexpr int operatorControllerLeftClimberDownButton = 3;
+constexpr int operatorControllerRightClimberUpButton = 6;
+constexpr int operatorControllerRightClimberDownButton = 4;
 constexpr int operatorControllerBothClimberDownButton = 11;
 constexpr int operatorControllerBothClimberUpButton = 12;
-constexpr int operatorControllerClimberDownButton = 13;
-constexpr int operatorControllerClimberUpButton = 14;
 } // namespace OIConstants
