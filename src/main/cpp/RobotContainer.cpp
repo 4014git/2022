@@ -5,7 +5,9 @@ RobotContainer::RobotContainer()
     ConfigureButtonBindings();
 
     m_drive.SetDefaultCommand(frc2::RunCommand(
-        [this] { m_drive.ArcadeDrive(-m_driverController.GetY(), -m_driverController.GetZ()); }, {&m_drive}));
+        [this] { m_drive.ArcadeDrive(-m_driverController.GetY(), -m_driverController.GetX()); }, {&m_drive}));
+    m_climber.SetDefaultCommand(frc2::RunCommand(
+        [this] { m_climber.setSpeed(-m_operatorController.GetY()); }, {&m_climber}));
 }
 
 void RobotContainer::ConfigureButtonBindings()
@@ -13,19 +15,13 @@ void RobotContainer::ConfigureButtonBindings()
     frc2::JoystickButton(&m_driverController, OIConstants::driverControllerChangeSquareInputs).WhenPressed(m_changeSquareInputPressed).WhenReleased(m_changeSquareInputReleased);
     
     frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerLeftClimberUpButton)
-        .WhenPressed(m_LeftClimberUp)
-        .WhenReleased(m_LeftClimberStop);
+        .WhileHeld(m_LeftClimberUp);
     frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerLeftClimberDownButton)
-        .WhenPressed(m_LeftClimberDown)
-        .WhenReleased(m_LeftClimberStop);
+        .WhileHeld(m_LeftClimberDown);
     frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerRightClimberUpButton)
-        .WhenPressed(m_RightClimberUp)
-        .WhenReleased(m_RightClimberStop);
+        .WhileHeld(m_RightClimberUp);
     frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerRightClimberDownButton)
-        .WhenPressed(m_RightClimberDown)
-        .WhenReleased(m_RightClimberStop);
-    frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerBothClimberUpButton).WhenPressed(m_BothClimbersUp).WhenReleased(m_BothClimbersStop);
-    frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerBothClimberDownButton).WhenPressed(m_BothClimbersDown).WhenReleased(m_BothClimbersStop);
+        .WhileHeld(m_RightClimberDown);
 }
 
 frc2::Command *RobotContainer::GetAutonomousCommand()

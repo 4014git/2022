@@ -26,17 +26,12 @@ class RobotContainer
 
     frc2::InstantCommand m_LeftClimberUp{[this] { m_climber.setLeftSpeed(ClimberConstants::kManualClimberSpeed); },
                                          {&m_climber}};
-    frc2::InstantCommand m_LeftClimberStop{[this] { m_climber.setLeftSpeed(0); }, {&m_climber}};
     frc2::InstantCommand m_LeftClimberDown{[this] { m_climber.setLeftSpeed(-ClimberConstants::kManualClimberSpeed); },
                                            {&m_climber}};
     frc2::InstantCommand m_RightClimberUp{[this] { m_climber.setRightSpeed(ClimberConstants::kManualClimberSpeed); },
                                           {&m_climber}};
-    frc2::InstantCommand m_RightClimberStop{[this] { m_climber.setRightSpeed(0); }, {&m_climber}};
     frc2::InstantCommand m_RightClimberDown{[this] { m_climber.setRightSpeed(-ClimberConstants::kManualClimberSpeed); },
                                             {&m_climber}};
-    frc2::InstantCommand m_BothClimbersUp{[this] { m_climber.setSpeed(ClimberConstants::kManualClimberSpeed); }, {&m_climber}};
-    frc2::InstantCommand m_BothClimbersStop{[this] { m_climber.setSpeed(0); }, {&m_climber}};
-    frc2::InstantCommand m_BothClimbersDown{[this] { m_climber.setSpeed(-ClimberConstants::kManualClimberSpeed); }, {&m_climber}};
     
     frc2::InstantCommand m_changeSquareInputPressed{[this] { m_drive.SetSquareInputs(!DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
     frc2::InstantCommand m_changeSquareInputReleased{[this] { m_drive.SetSquareInputs(DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
