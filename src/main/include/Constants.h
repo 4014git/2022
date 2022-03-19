@@ -42,7 +42,8 @@ constexpr bool kRightInverted = false;
 // climb configuration
 constexpr double kManualClimberSpeed = 1.0;
 constexpr double kClimberSpeed = 0.5;
-constexpr double kClimberDistanceInches = 10.0;
+constexpr double kClimberMaxDistanceInches = 10.0;
+constexpr double kClimberMinDistanceInches = 1.0;
 
 // encoder convertion factor
 constexpr double kEncoderUnitsPerRevolution = 42.0;
