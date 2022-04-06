@@ -10,6 +10,10 @@
 
 #include "subsystems/ClimberSubsystem.h"
 #include "subsystems/DrivetrainSubsystem.h"
+#include "subsystems/IntakeSubsystem.h"
+#include "subsystems/ShooterSubsystem.h"
+
+
 
 class RobotContainer
 {
@@ -23,6 +27,8 @@ class RobotContainer
 
     DrivetrainSubsystem m_drive;
     ClimberSubsystem m_climber;
+    IntakeSubsystem m_intake;
+    ShooterSubsystem m_shooter;
 
     frc2::InstantCommand m_LeftClimberUp{[this] { m_climber.setLeftSpeed(ClimberConstants::kManualClimberSpeed); },
                                          {&m_climber}};
@@ -35,6 +41,8 @@ class RobotContainer
     frc2::InstantCommand m_ClimberByJoystick{[this] { m_climber.setSpeed(-m_operatorController.GetY()); },
                                             {&m_climber}};
     
+    // todo: add instant commands here and the joystick bindings in RobotContainer.cpp
+
     frc2::InstantCommand m_changeSquareInputPressed{[this] { m_drive.SetSquareInputs(!DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
     frc2::InstantCommand m_changeSquareInputReleased{[this] { m_drive.SetSquareInputs(DriveConstants::kDefualtSquareInputs); }, {&m_drive}};
 
@@ -68,6 +76,19 @@ class RobotContainer
         frc2::FunctionalCommand([this] {}, [this] { m_drive.ArcadeDrive(-AutoConstants::kAutoDriveSpeed, 0); },
                                 [this](bool interrupted) { m_drive.ArcadeDrive(0, 0); },
                                 [this] { return m_drive.GetAverageEncoderVelocity() <= 0; }, {&m_drive})};
-
+    
+    // frc2::SequentialCommandGroup m_shooter_Auto {
+    //   frc2::FunctionalCommand( // First, the robot drives backwards with the intake on to collect a second cargo
+    //     [this] {m_intake.setSpeed(0.75);}, [this] { m_drive.ArcadeDrive(AutoConstants::kAutoDriveSpeed, 0); },
+    //     [this] (bool interrupted) { },
+    //     [this] {return m_drive.GetAverageEncoderDistance() >= AutoConstants::kAutoDriveDistanceInches;}
+    //   ),
+    //   frc2::FunctionalCommand( // Then, it shoots both cargos by continuously running the shooter motor
+    //     [this] {m_shooter.setShooterSpeed(0.75);}, [this] {;},
+    //     [this] (bool interrupted) { },
+    //     [this] { return false ;}
+    //   )
+    // };
+    // ^ for use when we have a functional shooter
     void ConfigureButtonBindings();
 };

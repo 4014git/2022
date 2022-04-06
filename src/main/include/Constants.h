@@ -35,6 +35,10 @@ namespace ClimberConstants
 constexpr int kRightMotor = 10;
 constexpr int kLeftMotor = 11;
 
+constexpr int kTransverseLeftMotor = 99;
+constexpr int kTransverseRightMotor = 99;
+
+
 // motor configurations
 constexpr bool kLeftnverted = true;
 constexpr bool kRightInverted = false;
@@ -64,9 +68,21 @@ constexpr int driverControllerChangeSquareInputs = 1;
 // operator controller buttons
 constexpr int operatorControllerLeftClimberUpButton = 5;
 constexpr int operatorControllerLeftClimberDownButton = 3;
+
 constexpr int operatorControllerRightClimberUpButton = 6;
 constexpr int operatorControllerRightClimberDownButton = 4;
+
 constexpr int operatorControllerBothClimberDownButton = 11;
 constexpr int operatorControllerBothClimberUpButton = 12;
+
 constexpr int operatorControllerClimberByJoystickButton = 1;
+
+constexpr int operatorControllerLeftTransverseClimberUpButton = 99;
+constexpr int operatorControllerRightTransverseClimberUpButton = 99;
+
+constexpr int operatorControllerLeftTransverseClimberDownButton = 99;
+constexpr int operatorControllerRightTransverseClimberDownButton = 99;
+
+constexpr int operatorControllerBothTransverseClimberUpButton = 99;
+constexpr int operatorControllerBothTransverseClimberDownButton = 99;
 } // namespace OIConstants
