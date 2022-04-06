@@ -11,7 +11,7 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
   public:
     DrivetrainSubsystem();
 
-    void ArcadeDrive(double fwd, double rot);
+    void ArcadeDrive(double fwd, double rot, bool squareInputs);
     void ResetEncoders();
     double GetLeftEncoderDistance();
     double GetRightEncoderDistance();
@@ -20,7 +20,6 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     double GetRightEncoderVelocity();
     double GetAverageEncoderVelocity();
     void SetBrakeMode(bool brake);
-    void SetSquareInputs(bool setSquareInputs);
 
   private:
     WPI_TalonFX m_leftFront;
@@ -29,6 +28,4 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     WPI_TalonFX m_rightFollower;
 
     frc::DifferentialDrive m_drive{m_leftFront, m_rightFront};
-
-    bool squareInputs;
 };

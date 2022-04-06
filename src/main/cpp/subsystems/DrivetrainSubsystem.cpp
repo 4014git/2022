@@ -4,7 +4,7 @@ using namespace DriveConstants;
 
 DrivetrainSubsystem::DrivetrainSubsystem()
     : m_leftFront{kLeftMotorFront}, m_leftFollower{kLeftMotorFollower}, m_rightFront{kRightMotorFront},
-      m_rightFollower{kRightMotorFollower}, squareInputs{kDefualtSquareInputs}
+      m_rightFollower{kRightMotorFollower}
 {
     m_leftFront.ConfigFactoryDefault();
     m_leftFollower.ConfigFactoryDefault();
@@ -25,7 +25,7 @@ DrivetrainSubsystem::DrivetrainSubsystem()
     m_leftFollower.SetNeutralMode(kNeutralMode);
 }
 
-void DrivetrainSubsystem::ArcadeDrive(double y, double x)
+void DrivetrainSubsystem::ArcadeDrive(double y, double x, bool squareInputs)
 {
     m_drive.ArcadeDrive(y, x, squareInputs);
 }
@@ -52,18 +52,17 @@ double DrivetrainSubsystem::GetAverageEncoderDistance()
            (2.0 * kEncoderUnitsPerInch);
 }
 
-double DrivetrainSubsystem::GetLeftEncoderVelocity(){
+double DrivetrainSubsystem::GetLeftEncoderVelocity()
+{
     return m_leftFront.GetSelectedSensorVelocity();
 }
 
-double DrivetrainSubsystem::GetRightEncoderVelocity(){
+double DrivetrainSubsystem::GetRightEncoderVelocity()
+{
     return m_rightFront.GetSelectedSensorVelocity();
 }
 
-double DrivetrainSubsystem::GetAverageEncoderVelocity(){
-    return (m_leftFront.GetSelectedSensorVelocity()+m_rightFront.GetSelectedSensorVelocity())/2.0;
-}
-
-void DrivetrainSubsystem::SetSquareInputs(bool setSquareInputs){
-    squareInputs = setSquareInputs;
+double DrivetrainSubsystem::GetAverageEncoderVelocity()
+{
+    return (m_leftFront.GetSelectedSensorVelocity() + m_rightFront.GetSelectedSensorVelocity()) / 2.0;
 }

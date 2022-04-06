@@ -5,19 +5,19 @@ using namespace ClimberConstants;
 ClimberSubsystem::ClimberSubsystem()
     : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
       m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
-      m_transverse_rightMotor{kTransverseRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
-      m_transverse_leftMotor{kTransverseLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}
+      m_rightRotationMotor{kRightRotationMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
+      m_leftRotationMotor{kLeftRotationMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}
 
 {
-    m_leftMotor.SetInverted(kLeftnverted);
+    m_leftMotor.SetInverted(kLeftInverted);
     m_rightMotor.SetInverted(kRightInverted);
-    m_transverse_leftMotor.SetInverted(kLeftnverted);
-    m_transverse_rightMotor.SetInverted(kRightInverted);
+    m_leftRotationMotor.SetInverted(kLeftTransversalInverted);
+    m_rightRotationMotor.SetInverted(kRightTransversalInverted);
 
     m_leftMotor.SetIdleMode(kNeutralMode);
     m_rightMotor.SetIdleMode(kNeutralMode);
-    m_transverse_leftMotor.SetIdleMode(kNeutralMode);
-    m_transverse_rightMotor.SetIdleMode(kNeutralMode);
+    m_leftRotationMotor.SetIdleMode(kNeutralMode);
+    m_rightRotationMotor.SetIdleMode(kNeutralMode);
 }
 
 void ClimberSubsystem::setLeftSpeed(double speed)
@@ -36,15 +36,18 @@ void ClimberSubsystem::setSpeed(double speed)
     m_rightMotor.Set(speed);
 }
 
-void ClimberSubsystem::setLeftTransverseSpeed(double speed) {
-    m_transverse_leftMotor.Set(speed);
+void ClimberSubsystem::setLeftRotationSpeed(double speed)
+{
+    m_leftRotationMotor.Set(speed);
 }
 
-void ClimberSubsystem::setRightTransverseSpeed(double speed) {
-    m_transverse_rightMotor.Set(speed);
+void ClimberSubsystem::setRightRotationSpeed(double speed)
+{
+    m_rightRotationMotor.Set(speed);
 }
 
-void ClimberSubsystem::setTransverseSpeed(double speed) {
-    m_transverse_leftMotor.Set(speed);
-    m_transverse_rightMotor.Set(speed);
+void ClimberSubsystem::setRotationSpeed(double speed)
+{
+    m_leftRotationMotor.Set(speed);
+    m_rightRotationMotor.Set(speed);
 }

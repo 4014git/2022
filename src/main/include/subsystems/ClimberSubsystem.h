@@ -14,14 +14,13 @@ class ClimberSubsystem : public frc2::SubsystemBase
     void setLeftSpeed(double speed);
     void setRightSpeed(double speed);
     void setSpeed(double speed);
-    void setLeftTransverseSpeed(double speed);
-    void setRightTransverseSpeed(double speed);
-    void setTransverseSpeed(double speed);
+    void setLeftRotationSpeed(double speed);
+    void setRightRotationSpeed(double speed);
+    void setRotationSpeed(double speed);
 
   private:
     rev::CANSparkMax m_leftMotor;
     rev::CANSparkMax m_rightMotor;
-
-    rev::CANSparkMax m_transverse_leftMotor;
-    rev::CANSparkMax m_transverse_rightMotor;
+    rev::CANSparkMax m_leftRotationMotor;
+    rev::CANSparkMax m_rightRotationMotor;
 };
