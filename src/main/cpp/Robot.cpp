@@ -1,12 +1,12 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/CommandScheduler.h>
-#include <cameraserver/CameraServer.h>
+// #include <cameraserver/CameraServer.h>
 
 #include "Robot.h"
 
 void Robot::RobotInit()
 {
-    frc::CameraServer::StartAutomaticCapture();
+    // frc::CameraServer::StartAutomaticCapture();
 }
 
 void Robot::RobotPeriodic()
