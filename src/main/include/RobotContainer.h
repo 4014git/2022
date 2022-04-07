@@ -4,15 +4,14 @@
 #include <frc/XboxController.h>
 #include <frc2/command/FunctionalCommand.h>
 #include <frc2/command/InstantCommand.h>
-#include <frc2/command/ParallelCommandGroup.h>
 #include <frc2/command/RunCommand.h>
 #include <frc2/command/SequentialCommandGroup.h>
 #include <frc2/command/button/JoystickButton.h>
 
 #include "subsystems/ClimberSubsystem.h"
 #include "subsystems/DrivetrainSubsystem.h"
-#include "subsystems/IntakeSubsystem.h"
-#include "subsystems/ShooterSubsystem.h"
+// #include "subsystems/IntakeSubsystem.h"
+// #include "subsystems/ShooterSubsystem.h"
 
 class RobotContainer
 {
@@ -26,8 +25,8 @@ class RobotContainer
 
     DrivetrainSubsystem m_drive;
     ClimberSubsystem m_climber;
-    IntakeSubsystem m_intake;
-    ShooterSubsystem m_shooter;
+    // IntakeSubsystem m_intake;
+    // ShooterSubsystem m_shooter;
 
     frc2::SequentialCommandGroup m_Auto{
         frc2::FunctionalCommand(

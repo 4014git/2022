@@ -1,6 +1,5 @@
 #pragma once
 
-#include <frc/Encoder.h>
 #include <frc2/command/SubsystemBase.h>
 #include <rev/CANSparkMax.h>
 

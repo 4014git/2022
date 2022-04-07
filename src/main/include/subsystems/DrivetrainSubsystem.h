@@ -19,7 +19,6 @@ class DrivetrainSubsystem : public frc2::SubsystemBase
     double GetLeftEncoderVelocity();
     double GetRightEncoderVelocity();
     double GetAverageEncoderVelocity();
-    void SetBrakeMode(bool brake);
 
   private:
     WPI_TalonFX m_leftFront;
