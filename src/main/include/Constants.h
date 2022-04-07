@@ -30,10 +30,10 @@ constexpr NeutralMode kNeutralMode = NeutralMode::Coast;
 namespace ClimberConstants
 {
 // can IDs
-constexpr int kRightMotor = 20;
-constexpr int kRightRotationMotor = 21;
-constexpr int kLeftMotor = 22;
-constexpr int kLeftRotationMotor = 23;
+constexpr int kLeftMotor = 20;
+constexpr int kLeftRotationMotor = 21;
+constexpr int kRightMotor = 22;
+constexpr int kRightRotationMotor = 23;
 
 // motor configurations
 constexpr bool kLeftInverted = true;
@@ -41,12 +41,24 @@ constexpr bool kLeftTransversalInverted = true;
 constexpr bool kRightInverted = false;
 constexpr bool kRightTransversalInverted = false;
 
-// climb configuration
-constexpr double kManualClimberSpeed = 1.0;
+constexpr double kJoystickSpeedScale = 12.0/100.0;
 
 // neutral mode
 constexpr rev::CANSparkMax::IdleMode kNeutralMode = rev::CANSparkMax::IdleMode::kBrake;
 } // namespace ClimberConstants
+
+namespace IntakeConstants{
+    constexpr int kLeftMotorRotation = 30;
+    constexpr int kRightMotorRotation = 31;
+    constexpr int kMotorIntake = 32;
+
+    constexpr int kLeftMotorInvert = true;
+    constexpr int kRightMotorInvert = false;
+    constexpr int kMotorIntakeInvert = false;
+
+    constexpr NeutralMode kRotationNeutralMode = NeutralMode::Brake;
+    constexpr NeutralMode kIntakeNeutralMode = NeutralMode::Brake;
+}
 
 namespace AutoConstants
 {
@@ -64,26 +76,8 @@ constexpr int operatorControllerPort = 1;
 constexpr int driverControllerSquareInputs = 1;
 
 // operator controller buttons
-constexpr int operatorControllerClimberLeftSide = 99;
-constexpr int operatorControllerClimberRightSide = 99;
-
-// constexpr int operatorControllerLeftClimberUpButton = 5;
-// constexpr int operatorControllerLeftClimberDownButton = 3;
-
-// constexpr int operatorControllerRightClimberUpButton = 6;
-// constexpr int operatorControllerRightClimberDownButton = 4;
-
-// constexpr int operatorControllerBothClimberDownButton = 11;
-// constexpr int operatorControllerBothClimberUpButton = 12;
-
-// constexpr int operatorControllerClimberByJoystickButton = 1;
-
-// constexpr int operatorControllerLeftTransverseClimberUpButton = 99;
-// constexpr int operatorControllerRightTransverseClimberUpButton = 99;
-
-// constexpr int operatorControllerLeftTransverseClimberDownButton = 99;
-// constexpr int operatorControllerRightTransverseClimberDownButton = 99;
-
-// constexpr int operatorControllerBothTransverseClimberUpButton = 99;
-// constexpr int operatorControllerBothTransverseClimberDownButton = 99;
+constexpr int operatorControllerClimberLeftSide = 5;
+constexpr int operatorControllerClimberRightSide = 6;
+constexpr int operatorControllerClimberFullSpeedForward = 1;
+constexpr int operatorControllerClimberFullSpeedBackward = 2;
 } // namespace OIConstants

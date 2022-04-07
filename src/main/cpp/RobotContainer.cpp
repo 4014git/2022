@@ -9,7 +9,7 @@ RobotContainer::RobotContainer()
     m_climber.SetDefaultCommand(frc2::RunCommand(
         [this] {
             m_climber.setSpeed(m_operatorController.GetLeftY());
-            m_climber.setRotationSpeed(m_operatorController.GetRightY());
+            m_climber.setRotationSpeed(m_operatorController.GetRightY()*ClimberConstants::kJoystickSpeedScale);
         },
         {&m_climber}));
 }
@@ -28,7 +28,7 @@ void RobotContainer::ConfigureButtonBindings()
         .WhileHeld(frc2::RunCommand(
             [this] {
                 m_climber.setLeftSpeed(m_operatorController.GetLeftY());
-                m_climber.setLeftRotationSpeed(m_operatorController.GetRightY());
+                m_climber.setLeftRotationSpeed(m_operatorController.GetRightY()*ClimberConstants::kJoystickSpeedScale);
             },
             {&m_climber}));
 
@@ -40,9 +40,27 @@ void RobotContainer::ConfigureButtonBindings()
         .WhileHeld(frc2::RunCommand(
             [this] {
                 m_climber.setRightSpeed(m_operatorController.GetLeftY());
-                m_climber.setRightRotationSpeed(m_operatorController.GetRightY());
+                m_climber.setRightRotationSpeed(m_operatorController.GetRightY()*ClimberConstants::kJoystickSpeedScale);
             },
             {&m_climber}));
+    
+    frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerClimberFullSpeedForward)
+    .WhileHeld(
+        frc2::RunCommand(
+            [this] {
+                m_climber.setRotationSpeed(-1);
+            },
+            {&m_climber})
+    );
+
+    frc2::JoystickButton(&m_operatorController, OIConstants::operatorControllerClimberFullSpeedBackward)
+    .WhileHeld(
+        frc2::RunCommand(
+            [this] {
+                m_climber.setRotationSpeed(1);
+            },
+            {&m_climber})
+    );
 }
 
 frc2::Command *RobotContainer::GetAutonomousCommand()

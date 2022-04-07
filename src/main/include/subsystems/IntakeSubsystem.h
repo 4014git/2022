@@ -9,8 +9,13 @@ class IntakeSubsystem : public frc2::SubsystemBase
   public:
     IntakeSubsystem();
 
-    void setSpeed(double speed);
+    void setLeftRotationSpeed(double speed);
+    void setRightRotationSpeed(double speed);
+    void setRotationSpeed(double speed);
+    void setIntakeSpeed(double speed);
 
   private:
-    // motor declarations go here
+    TalonSRX m_leftRotation;
+    TalonSRX m_rightRotation;
+    TalonSRX m_intake;
 };

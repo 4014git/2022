@@ -3,10 +3,10 @@
 using namespace ClimberConstants;
 
 ClimberSubsystem::ClimberSubsystem()
-    : m_leftMotor{kLeftMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
-      m_rightMotor{kRightMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
-      m_rightRotationMotor{kRightRotationMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless},
-      m_leftRotationMotor{kLeftRotationMotor, rev::CANSparkMaxLowLevel::MotorType::kBrushless}
+    : m_leftMotor{kLeftMotor, rev::CANSparkMax::MotorType::kBrushless},
+      m_rightMotor{kRightMotor, rev::CANSparkMax::MotorType::kBrushless},
+      m_rightRotationMotor{kRightRotationMotor, rev::CANSparkMax::MotorType::kBrushless},
+      m_leftRotationMotor{kLeftRotationMotor, rev::CANSparkMax::MotorType::kBrushless}
 
 {
     m_leftMotor.SetInverted(kLeftInverted);

@@ -44,7 +44,7 @@ class RobotContainer
     //     [this] (bool interrupted) { },
     //     [this] {return m_drive.GetAverageEncoderDistance() >= AutoConstants::kAutoDriveDistanceInches;}
     //   ),
-    //   frc2::FunctionalCommand( // Then, it shoots both cargos by continuously running the shooter motor
+    //   frc2::FunctionalCommand( // Then, it shoots both cargos by continuously running the sh ooter motor
     //     [this] {m_shooter.setShooterSpeed(0.75);}, [this] {;},
     //     [this] (bool interrupted) { },
     //     [this] { return false ;}
