@@ -76,8 +76,8 @@ constexpr int operatorControllerPort = 1;
 constexpr int driverControllerSquareInputs = 1;
 
 // operator controller buttons
-constexpr int operatorControllerClimberLeftSide = 5;
-constexpr int operatorControllerClimberRightSide = 6;
+constexpr int operatorControllerClimberLeftSide = 6;
+constexpr int operatorControllerClimberRightSide = 5;
 constexpr int operatorControllerClimberFullSpeedForward = 1;
 constexpr int operatorControllerClimberFullSpeedBackward = 2;
 } // namespace OIConstants
